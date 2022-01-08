@@ -6,17 +6,7 @@ class Solution(object):
         """
         
         
-        colCoord = ord(coordinates[0]) - ord('a')
+        colCoord = ord(coordinates[0]) - ord('a') + 1
         rowCoord = int(coordinates[1])
         
-        if colCoord % 2 == 0:
-            #if row is odd then black, else white
-            if rowCoord % 2 == 1:
-                return False
-            return True
-            
-        else:
-            #if row is even then black, else white
-            if rowCoord % 2 != 1:
-                return False
-            return True
+        return not ((colCoord%2 == 0 and rowCoord%2 == 0) or (colCoord%2 != 0 and rowCoord%2 != 0))
