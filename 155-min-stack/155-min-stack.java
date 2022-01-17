@@ -1,46 +1,36 @@
 class MinStack {
      Stack<Integer> mainStack;
      Stack<Integer> minStack;
+     int min;
     public MinStack() {
         mainStack = new Stack<>();
-        minStack = new Stack<>();
-        
+        //minStack = new Stack<>();
+        min = Integer.MAX_VALUE;
     }
     
     public void push(int val) {
-        if(mainStack.size() == 0){
-            //mainStack.push(val);
-            minStack.push(val);
-        } else{
-            int top = minStack.peek();
-            if(val < top){
-            minStack.push(val);
-        } else{
-            minStack.push(top);
-        }    
+        // Check if the curr min is changing
+        if(val <= min){
+            mainStack.push(min);
+            min = val;
         }
-        
         mainStack.push(val);
-        return;
     }
     
     public void pop() {
-        // underflow 
-        if(mainStack.size() == 0) return;
-        mainStack.pop();
-        minStack.pop();
-        return;
+        int x = mainStack.pop();
+        if(x == min){
+            min = mainStack.pop();
+        }
     }
     
     public int top() {
         //underflow erro check 
-        if(mainStack.size() == 0) return -1;
         return mainStack.peek();
     }
     
     public int getMin() {
-        if(minStack.size() == 0) return -1;
-        return minStack.peek();
+        return min;
     }
 }
 
