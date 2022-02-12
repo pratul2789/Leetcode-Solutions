@@ -6,40 +6,32 @@ class Node(object):
         self.neighbors = neighbors if neighbors is not None else []
 """
 
-from collections import defaultdict,deque
-
 class Solution(object):
     def cloneGraph(self, node):
         """
         :type node: Node
         :rtype: Node
         """
-        d = dict()
         
         if not node:
             return node
         
-        q = deque()
+        d = dict()
         
-        root = Node(node.val,[])
-        d[node.val] = root
-        q.append(node)
-        vis = set()
-        vis.add(node.val)
-        #print(node.neighbors)
-        while q:
-            tmp = q.popleft()
-            #print(tmp.val)
-            root = d[tmp.val]
-            #print(len(tmp.neighbors))
-            for n in tmp.neighbors:
-                if n.val not in d:
-                    #print("lol")
-                    d[n.val] = Node(n.val,[])
-                root.neighbors.append(d[n.val])
-                if n.val not in vis:
-                    #print("Hola")
-                    vis.add(n.val)
-                    q.append(n)
+        
+        def dfs(root):
+            
+            if root in d:
+                return d[root]
+            
+            node = Node(root.val,[])
+            
+            d[root] = node
+            
+            for nbr in root.neighbors:
+                tmp = dfs(nbr)
+                node.neighbors.append(tmp)
                 
-        return d[node.val]
+            return node
+        
+        return dfs(node)
