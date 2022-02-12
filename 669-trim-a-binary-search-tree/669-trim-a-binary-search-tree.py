@@ -20,11 +20,12 @@ class Solution(object):
             if low <= root.val <= high:
                 root.left = dfs(root.left)
                 root.right = dfs(root.right)
+                return root
             elif root.val < low:
-                root = dfs(root.right)
+                return dfs(root.right)
             elif root.val > high:
-                root = dfs(root.left)
+                return dfs(root.left)
                 
-            return root
+            #return root
         
         return dfs(root)
