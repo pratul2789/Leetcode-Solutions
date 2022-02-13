@@ -11,33 +11,17 @@ class Solution(object):
         :rtype: int
         """
         
-        
-        if not head:
-            return 0
         nums = set(nums)
-        vis = set()
-        
-        def dfs(node):
-            if node in vis:
-                return
-            
-            vis.add(node)
-            
-            if node.next and node.next.val in nums:
-                dfs(node.next)
-            
-            return
-        
         
         tmp = head
+        
         count = 0
         while tmp:
-            if tmp.val in nums and tmp not in vis:
-                dfs(tmp)
+            if tmp.val in nums:
                 count += 1
-                
+                while tmp.next and tmp.val in nums:
+                    tmp = tmp.next
+                    
             tmp = tmp.next
             
-        
-        
         return count
