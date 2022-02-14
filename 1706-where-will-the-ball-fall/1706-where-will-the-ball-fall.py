@@ -12,7 +12,6 @@ class Solution(object):
         
         
         def canGoNext(i,j):
-            
             if grid[i][j] == 1:
                 if j == len(grid[0]) -1:
                     return False
@@ -47,10 +46,6 @@ class Solution(object):
         res = []
         
         for i in range(len(grid[0])):
-            x = dfs(0,0,i)
-            if x != -1:
-                res.append(x)
-            else:
-                res.append(-1)
+            res.append(dfs(0,0,i))
                 
         return res
