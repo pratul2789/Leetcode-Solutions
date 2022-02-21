@@ -38,8 +38,8 @@ class Solution(object):
         bfs()
         ans = 0
         for node in range(1,len(patience)):
-            
             pat = patience[node]
+            
             fullPath = (shortestPath[node] * 2)
             
             extraPackets = (fullPath - 1) // pat
