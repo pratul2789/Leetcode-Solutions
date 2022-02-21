@@ -1,13 +1,6 @@
 from collections import defaultdict,deque
-class Solution(object):
-    def networkBecomesIdle(self, edges, patience):
-        """
-        :type edges: List[List[int]]
-        :type patience: List[int]
-        :rtype: int
-        """
-        
-        
+class Solution:
+    def networkBecomesIdle(self, edges: List[List[int]], patience: List[int]) -> int:
         adj = defaultdict(list)
         shortestPath = defaultdict(int)
         
@@ -49,9 +42,3 @@ class Solution(object):
             ans = max(ans,lastPacketSent + fullPath)
             
         return ans + 1
-            
-            
-        
-                
-                
-            
