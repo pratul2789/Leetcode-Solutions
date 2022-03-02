@@ -24,7 +24,7 @@ class Solution(object):
                     del d[i]
             
                 if i < 0:
-                    if (i * -1) % 2 != 0:
+                    if (i) % 2 != 0:
                         return False
                     comp = i // 2
                 else:
