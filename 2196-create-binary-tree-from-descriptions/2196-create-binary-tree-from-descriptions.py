@@ -1,16 +1,11 @@
 # Definition for a binary tree node.
-# class TreeNode(object):
+# class TreeNode:
 #     def __init__(self, val=0, left=None, right=None):
 #         self.val = val
 #         self.left = left
 #         self.right = right
-class Solution(object):
-    def createBinaryTree(self, descriptions):
-        """
-        :type descriptions: List[List[int]]
-        :rtype: Optional[TreeNode]
-        """
-        
+class Solution:
+    def createBinaryTree(self, descriptions: List[List[int]]) -> Optional[TreeNode]:
         par = set()
         ch = set()
         d = {}
@@ -41,6 +36,3 @@ class Solution(object):
         st = par - ch
         for i in st:
             return d[i]
-            
-        
-        
