@@ -19,9 +19,7 @@ class Solution(object):
         for root,child,isLeft in descriptions:
             ch.add(child)
             par.add(root)
-            if child not in adj:
-                adj[child] = 0
-            adj[child] += 1
+            
             
             if child not in d:
                 d[child] = TreeNode(child)
@@ -39,7 +37,7 @@ class Solution(object):
             else:
                 rootNode.right = childNode
                 
-        
+        #print(par) 
         st = par - ch
         for i in st:
             return d[i]
