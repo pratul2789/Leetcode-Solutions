@@ -11,11 +11,14 @@ class Solution(object):
         :rtype: Optional[TreeNode]
         """
         
-        adj = {}
+        par = set()
+        ch = set()
         d = {}
-        
+        adj = {}
         
         for root,child,isLeft in descriptions:
+            ch.add(child)
+            par.add(root)
             if child not in adj:
                 adj[child] = 0
             adj[child] += 1
@@ -23,8 +26,10 @@ class Solution(object):
             if child not in d:
                 d[child] = TreeNode(child)
                 
+                
             if root not in d:
                 d[root] = TreeNode(root)
+                
                 
             rootNode = d[root]
             childNode = d[child]
@@ -35,10 +40,9 @@ class Solution(object):
                 rootNode.right = childNode
                 
         
-        
-        for i in descriptions:
-            if i[0] not in adj:
-                return d[i[0]]
+        st = par - ch
+        for i in st:
+            return d[i]
             
         
         
