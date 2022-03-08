@@ -10,14 +10,9 @@ class Solution(object):
         
         dirs = [(-2,-1),(-2,1),(2,-1),(2,1),(-1,-2),(-1,2),(1,-2),(1,2)]
         
-        vis = set()
         dp = defaultdict(int)
         
-        #@lru_cache(None)
-        
         def backtrack(i,j,k):
-            
-            #print("-----------------------------------------------------------------------------")
             if k == 0:
                 return 1
             
@@ -35,7 +30,6 @@ class Solution(object):
                 if r >= 0 and c >= 0 and r < 4 and c < 3:
                     if (r == 3 and c == 0) or (r == 3 and c == 2):
                         continue
-                    #path.append((r,c))
                     count += backtrack(r,c,k-1)
                 
             #mat[i][j] = tmp
@@ -44,10 +38,11 @@ class Solution(object):
             
         ans = 0
         
-        for i in range(len(mat)):
-            for j in range(len(mat[0])):
-                if mat[i][j] != -1:
-                    ans += backtrack(i,j,n-1)
+        for i in range(4):
+            for j in range(3):
+                if (i == 3 and j == 0) or (i == 3 and j == 2):
+                    continue
+                ans += backtrack(i,j,n-1)
         
         #ans += backtrack(0,0,n-1,[])
                 
