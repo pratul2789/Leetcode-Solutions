@@ -57,25 +57,28 @@ class Solution:
             
             if node.right:
                 q.append((node.right,pathSoFar + "R"))
-                
-        if root.val != startValue and root.val != destValue:
-            #Dono hi Valid hai
-            # Convert startNodePath ko into all U's
-            temp = ""
+        
+        
+        temp = ""
             
-            for i in range(len(pathToStart)):
-                temp += "U"
+        for i in range(len(pathToStart)):
+            temp += "U"
                 
-            return temp + pathToDest
-        
-        #One of them is the root. Now we need to make sure that we return all U's if destination is the start node
-        
-        if root.val == destValue:
-            temp = ""
+#         if root.val != startValue and root.val != destValue:
+#             # Dono hi Valid hai
+#             # Convert startNodePath ko into all U's
             
-            for i in range(len(pathToStart)):
-                temp += "U"
                 
-            return temp
+#             return temp + pathToDest
         
-        return pathToDest
+#         #One of them is the root. Now we need to make sure that we return all U's if destination is the start node
+        
+#         if root.val == destValue:
+#             temp = ""
+            
+#             for i in range(len(pathToStart)):
+#                 temp += "U"
+                
+#             return temp
+        
+        return temp + pathToDest
