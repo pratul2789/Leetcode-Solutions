@@ -7,6 +7,7 @@ class Solution(object):
         
         self.stack = []
         self.total = 0
+        
         def add(num):
             self.total += num
             self.stack.append(num)
