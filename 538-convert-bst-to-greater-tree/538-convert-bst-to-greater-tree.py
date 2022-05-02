@@ -1,15 +1,11 @@
 # Definition for a binary tree node.
-# class TreeNode(object):
+# class TreeNode:
 #     def __init__(self, val=0, left=None, right=None):
 #         self.val = val
 #         self.left = left
 #         self.right = right
-class Solution(object):
-    def convertBST(self, root):
-        """
-        :type root: TreeNode
-        :rtype: TreeNode
-        """
+class Solution:
+    def convertBST(self, root: Optional[TreeNode]) -> Optional[TreeNode]:
         if not root:
             return root
         
@@ -27,4 +23,3 @@ class Solution(object):
         
         dfs(root,0)
         return root
-        
