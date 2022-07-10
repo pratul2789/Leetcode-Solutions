@@ -19,7 +19,7 @@ class Solution(object):
         for i in supplies:
             q.append(i)
             
-        vis = set(recipes)
+        #vis = set(recipes)
         
         
         ans = []
@@ -27,12 +27,13 @@ class Solution(object):
         while q:
             item = q.popleft()
             
-            if item in vis:
-                ans.append(item)
+            # if item in vis:
+            #     ans.append(item)
                 
             for i in d[item]:
                 ind[i] -= 1
                 if ind[i] == 0:
+                    ans.append(i)
                     q.append(i)
                     
         return ans
