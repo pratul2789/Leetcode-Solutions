@@ -1,13 +1,6 @@
-from collections import deque,defaultdict
-class Solution(object):
-    def findAllRecipes(self, recipes, ingredients, supplies):
-        """
-        :type recipes: List[str]
-        :type ingredients: List[List[str]]
-        :type supplies: List[str]
-        :rtype: List[str]
-        """
-        
+from collections import defaultdict,deque
+class Solution:
+    def findAllRecipes(self, recipes: List[str], ingredients: List[List[str]], supplies: List[str]) -> List[str]:
         q = deque()
         d = defaultdict(list)
         ind = defaultdict(int)
