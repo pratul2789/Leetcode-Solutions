@@ -11,7 +11,7 @@ class Node:
     # define your fields here
     @abstractmethod
     def evaluate(self):
-        return self.root.val
+        pass
 
 class TreeNode(Node):
     
