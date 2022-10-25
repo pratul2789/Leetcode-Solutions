@@ -14,9 +14,8 @@ class Solution(object):
         :type head: Node
         :rtype: Node
         """
-        self.dum = Node('#')
-        self.tail = self.dum
-        
+        self.dum = Node('#')   # a = 3
+        self.tail = self.dum   # b = a
         
         def dfs(node):
             if not node:
@@ -26,8 +25,9 @@ class Solution(object):
             dumChild = node.child
             dumPrev = node.prev
             
+            # Current Node ki processing
             self.tail.next = node
-            node.prev = None
+            #node.prev = None
             node.prev = self.tail
             node.child = None
             #if node.next:
