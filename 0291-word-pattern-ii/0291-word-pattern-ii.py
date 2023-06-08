@@ -14,7 +14,7 @@ class Solution(object):
             if i == len(pattern) and j == len(s): 
                 return True 
             if i >= len(pattern) or j >= len(s): # did not work, backtrack
-                return 
+                return False
             if pattern[i] not in mapping: 
                 for length in range(1, len(s)-j+1): 
                     if s[j:j+length] not in mapped: # can't map to a mapped string
@@ -32,5 +32,5 @@ class Solution(object):
             return False 
         
         x = helper(0, 0)
-        print(mapping)
+        #print(mapping)
         return x
