@@ -15,20 +15,18 @@ class Solution(object):
                 j += 1
             else : 
                 if abbr[j].isdigit():
-                    dig = ""
+                    #dig = ""
                     if abbr[j] == "0":
                         return False
+                    dig = 0
                     while j < len(abbr) and abbr[j].isdigit():
-                        dig += abbr[j]
+                        dig = (dig * 10) + int(abbr[j])
                         j += 1
                     #print(dig)
-                    if int(dig) >= (len(word) - i + 1):
+                    if dig >= (len(word) - i + 1):
                         return False
-
-                    # what we have to do now is increment i by dig
-                    i = i + int(dig)
+                    i = i + dig
                 else:
-                    #print(word[i], abbr[j])
                     return False
         if i < len(word) or j < len(abbr):
             return False
