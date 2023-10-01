@@ -41,6 +41,7 @@
 #        :rtype List[NestedInteger]
 #        """
 
+from collections import deque
 class Solution(object):
     def depthSum(self, nestedList):
         """
@@ -51,6 +52,7 @@ class Solution(object):
         if not nestedList:
             return 0
         
+        """
         def dfs(arr, depth):
             total = 0
             
@@ -61,6 +63,26 @@ class Solution(object):
                     total += dfs(i.getList(), depth + 1)
                     
             return total
-        return dfs(nestedList, 1)
+        return dfs(nestedList, 1)"""
+        
+        q = deque([])
+        for i in nestedList:
+            q.append(i)
+        
+        dep = 1
+        tot = 0
+        while q:
+            l = len(q)
+            for _ in range(l):
+                ele = q.popleft()
+                if ele.isInteger():
+                    tot = tot + (dep * ele.getInteger())
+                else:
+                    for j in ele.getList():
+                        q.append(j)
+            dep += 1
+        return tot
+        
+        
             
         
